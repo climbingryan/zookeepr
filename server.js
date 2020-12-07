@@ -1,4 +1,5 @@
 const express = require('express');
+const PORT = process.env.PORT || 3001;
 const app = express();
 const { animals } = require('./data/animals.json');
 
@@ -18,7 +19,7 @@ function filterByQuery(query, animalsArray) {
       // Loop through each trait in the personalityTraits array:
       personalityTraitsArray.forEach(trait => {
         // Check the trait against each animal in the filteredResults array.
-        
+
         // Remember, it is initially a copy of the animalsArray,
         // but here we're updating it for each trait in the .forEach() loop.
         // For each trait being targeted by the filter, the filteredResults
@@ -52,6 +53,6 @@ app.get('/api/animals', (req, res) => {
     res.json(results);
 });
 
-app.listen(3001, () => {
-    console.log(`API server on port 3001`)
+app.listen(PORT, () => {
+    console.log(`API server on port ${PORT}`)
 });
