@@ -135,6 +135,37 @@
         "hungry"
       ],
       "id": "13"
+    },
+    {
+      "name": "monkey",
+      "species": "monkey",
+      "diet": "piscivore",
+      "personalityTraits": [
+        "hungry",
+        "anxious",
+        "goofy"
+      ],
+      "id": "14"
+    },
+    {
+      "name": "Larry",
+      "species": "lemur",
+      "diet": "omnivore",
+      "personalityTraits": [
+        "hungry"
+      ],
+      "id": "15"
+    },
+    {
+      "name": "monkey",
+      "species": "weirdBoy",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "hungry",
+        "zany",
+        "anxious"
+      ],
+      "id": "16"
     }
   ]
 }

@@ -3,9 +3,11 @@ const path = require('path');
 const express = require('express');
 const PORT = process.env.PORT || 3001;
 const app = express();
-// parse incoming string or array data
+    // allows access to css, images & js files w/o creating specific routes
+app.use(express.static('public'));
+    // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
-// parse incoming JSON data
+    // parse incoming JSON data
 app.use(express.json());
 const { animals } = require('./data/animals.json');
 
@@ -114,7 +116,22 @@ app.post('/api/animals', (req, res) => {
         res.json(animal);
     }
   });
+  
+    // Send Index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+}); // Send Animals.html
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+}); // Send ZooKeepers.html
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`API server on port ${PORT}`)
 });
+
+
+// 'api' = deals with transfering data
+// '/' || '/animals' = deal with serving html page
